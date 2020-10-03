@@ -1,0 +1,1 @@
+type renderable interface 
