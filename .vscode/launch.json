@@ -5,11 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch Tile Map Test",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}\\src\\tilemap\\tilemap.go"
+        },
+        {
             "name": "Launch Pong file",
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}\\demos\\pong.go"
+            "program": "${workspaceFolder}\\src\\pong.go"
         }
     ]
 }
