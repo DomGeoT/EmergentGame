@@ -19,6 +19,8 @@ const (
 	worldWidth, worldHeight = 20, 20
 )
 
+type Game struct{}
+
 var (
 	grassTileImg, rockTileImg *ebiten.Image
 	game                      Game
@@ -41,14 +43,13 @@ type tilemap struct {
 }
 
 func init() {
-	var x Camera
 	var err error
-	grassTileImg, _, err = ebitenutil.NewImageFromFile("../../assets/grassTile.png", ebiten.FilterDefault)
+	grassTileImg, _, err = ebitenutil.NewImageFromFile("../assets/grassTile.png", ebiten.FilterDefault)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	rockTileImg, _, err = ebitenutil.NewImageFromFile("../../assets/rockTile.png", ebiten.FilterDefault)
+	rockTileImg, _, err = ebitenutil.NewImageFromFile("../assets/rockTile.png", ebiten.FilterDefault)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -56,12 +57,16 @@ func init() {
 	world = tilemap{generateTileMap()}
 }
 
-func update(screen *ebiten.Image) error {
+func (g *Game) Update(screen *ebiten.Image) error {
 
 	if ebiten.IsDrawingSkipped() {
 		return nil
 	}
 
+	return nil
+}
+
+func (g *Game) Draw(screen *ebiten.Image) {
 	var i, j int
 
 	for i = 0; i < worldWidth; i++ {
@@ -69,7 +74,10 @@ func update(screen *ebiten.Image) error {
 			world.tiles[i][j].drawTile(screen)
 		}
 	}
-	return nil
+}
+
+func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+	return 640, 480
 }
 
 func generateTileMap() [][]tile {
@@ -95,7 +103,11 @@ func generateTileMap() [][]tile {
 }
 
 func main() {
-	if err := ebiten.Run(update, screenWidth, screenHeight, 1, "Tile Map Demo"); err != nil {
+	game := &Game{}
+	ebiten.SetWindowSize(640, 480)
+	ebiten.SetWindowTitle("Your game's title")
+
+	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
 	}
 }

@@ -9,14 +9,14 @@
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}\\src\\tilemap\\tilemap.go"
+            "program": "${workspaceFolder}\\tilemap\\tilemap.go"
         },
         {
             "name": "Launch Pong file",
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "${workspaceFolder}\\src\\pong.go"
+            "program": "${workspaceFolder}\\pong\\pong.go"
         }
     ]
 }

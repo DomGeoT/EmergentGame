@@ -5,7 +5,6 @@ import (
 
 	_ "image/png"
 
-
 	"github.com/hajimehoshi/ebiten"
 	"github.com/hajimehoshi/ebiten/ebitenutil"
 )
@@ -106,17 +105,17 @@ var (
 )
 
 func init() {
-	background, _, err = ebitenutil.NewImageFromFile("./assets/space.png", ebiten.FilterDefault)
+	background, _, err = ebitenutil.NewImageFromFile("../assets/space.png", ebiten.FilterDefault)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	ball, _, err = ebitenutil.NewImageFromFile("./assets/ball.png", ebiten.FilterDefault)
+	ball, _, err = ebitenutil.NewImageFromFile("../assets/ball.png", ebiten.FilterDefault)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	paddle, _, err = ebitenutil.NewImageFromFile("./assets/paddle.png", ebiten.FilterDefault)
+	paddle, _, err = ebitenutil.NewImageFromFile("../assets/paddle.png", ebiten.FilterDefault)
 	if err != nil {
 		log.Fatal(err)
 	}
